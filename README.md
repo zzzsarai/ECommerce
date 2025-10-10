@@ -13,4 +13,4 @@ Each member should answer briefly in the documentation:
 4. What improvements can be made to the interface or user flow?
 
 ### NOTE!!
-Kindly do it neatly and add comments
+Kindly do it neatly and add comments. Thank you
