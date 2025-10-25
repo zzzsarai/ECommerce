@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo+Swash+Caps&display=swap');
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #CD2C58; /* light pink tone */
+  padding: 10px 20px;  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* === Left side: logo + text === */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-right: 10px; /* Small space between logo and text */
+  vertical-align: middle
+}
+
+.logo-text {
+  font-family: 'Macondo Swash Caps', cursive;
+  font-size: 2.8rem;      /* slightly larger for emphasis */
+  color: #ffffff;         /* donut-like chocolate tone */
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* === Right side: links === */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: 
+    color 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffe761; 
+  transform: scale(1.15);
+  transition: transform 0.15s ease-in-out;
+}
+
+.nav-links a.active {
+  color: #ffdcad; 
+  font-weight: bold;
+  transform: scale(1.05)
+}
+
+@media (max-width: 900px) {
+  .logo-text {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navigation {
+    display: inline-block;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+}
