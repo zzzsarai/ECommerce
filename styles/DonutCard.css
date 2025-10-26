@@ -1,0 +1,117 @@
+/* container (unchanged) */
+.cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  overflow: visible;
+}
+
+/* CARD (unchanged) */
+.donut-card {
+  width: 240px;
+  height: 375px;
+  background-color: #fbe4da;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  position: relative;   /* containing block for absolute elements */
+  cursor: pointer;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  overflow: visible;
+  z-index: 0;
+  outline: none;
+}
+
+.donut-card:hover,
+.donut-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* DONUT IMAGE (unchanged) */
+.donut-image {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+  transform-origin: center center;
+}
+
+.donut-card:hover .donut-image {
+  animation: spin 8s linear infinite;
+  transform: scale(1.05);
+
+
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* DONUT NAME */
+.donut-name {
+  font-weight: 600;
+  color: #5a3a34;
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+/* REVEAL */
+.donut-reveal {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 60px;          /* leave space for button */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  border-radius: 12px;
+
+  background: linear-gradient(180deg, rgba(251,228,218,0) 0%, rgba(251,228,218,0.98) 70%);
+}
+
+.donut-card:hover .donut-reveal,
+.donut-card:focus-within .donut-reveal {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* reveal children */
+.donut-description { font-size: 0.9rem; color: #6b4e4e; margin: 0; }
+.donut-price { font-weight: 700; color: #4a2c28; font-size: 1rem; }
+
+/* ADD TO CART fixed at bottom of card */
+.add-to-cart {
+  position: absolute;
+  bottom: 16px;            /* always 16px from bottom of card */
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  background-color: #d45b52;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.15s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #c24d45;
+  transform: translateX(-50%) scale(1.05); /* keep it centered */
+}
+
+/* keyboard focus outline */
+.donut-card:focus-within { box-shadow: 0 0 0 3px rgba(212,91,82,0.12); }
